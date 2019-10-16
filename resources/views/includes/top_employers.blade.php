@@ -24,9 +24,9 @@
     </ul>
 
   </div>
-  <div class="row">
+ <!-- <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6">{!! $siteSetting->index_page_below_top_employes_ad !!}</div>
     <div class="col-md-3"></div>
-</div>
+</div>-->
 </div>

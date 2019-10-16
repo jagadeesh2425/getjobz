@@ -45,7 +45,7 @@ class IndexController extends Controller
     public function index()
     {
 		
-		$topCompanyIds = $this->getCompanyIdsAndNumJobs(10);
+		$topCompanyIds = $this->getCompanyIdsAndNumJobs(14);
 		$topFunctionalAreaIds = $this->getFunctionalAreaIdsAndNumJobs(32);
 		$topIndustryIds = $this->getIndustryIdsFromCompanies(32);
 		$topSkillsIds = $this->getSkillsIdsFromCompanies(32);

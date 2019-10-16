@@ -18,7 +18,61 @@
               @foreach($show_in_top_menu as $top_menu) @php $cmsContent = App\CmsContent::getContentBySlug($top_menu->page_slug); @endphp
               <li class="{{ Request::url() == route('cms', $top_menu->page_slug) ? 'active' : '' }}"><a href="{{ route('cms', $top_menu->page_slug) }}"><i class="fa fa-briefcase" style="font-size:19px;padding-right: 5px;color: #18a7ff;"></i>{{ $cmsContent->page_title }}</a> </li>
               @endforeach
+
+              <li class="dropdown"><a href="#"><i class="fa fa-user" style="font-size:19px;padding-right: 5px;color: #18a7ff;"></i>{{__('Services')}} <span class="caret"></span></a>
+
+                <!-- dropdown start -->
+
+                <ul class="dropdown-menu">
+                  <li><a href="{{ route('xpress.resume') }}">{{__('Xpress Resume')}}</a> </li>
+                  <li><a href="{{ route('resume.highlighter') }}">{{__('Resume Highlighter')}}</a> </li>
+                  <li><a href="{{ route('resume.writing') }}">{{__('Resume Writing')}}</a> </li>
+                  <li><a href="{{ route('special.packages') }}">{{__('Special Packages')}}</a> </li>
+                </ul>
+
+                <!-- dropdown end -->
+
+              </li>
+
+
+           <!--   <li class="mega">Menu<i class="fa fa-briefcase" style="font-size:19px;padding-right: 5px;color: #18a7ff;"></i>
+               
+                <div class="mega-menu">
+                  <div class="inside-mega-menu">
+                    @php
+
+                $industries = App\Industry::getUsingIndustries(5);
+      
+                @endphp
+      
+                @foreach($industries as $industry)
+      
+                <p><a href="{{ route('job.list', ['industry_id[]'=>$industry->industry_id]) }}" style="color:white;">{{$industry->industry}}</a></p>
+      
+                @endforeach
+                  </div>
+                  <div class="inside-mega-menu">
+                    <p>mega-menu</p>
+                    <p>mega-menu</p>
+                    <p>mega-menu</p>
+                    <p>mega-menu</p>
+                  </div>
+                  <div class="inside-mega-menu">
+                    <p>mega-menu</p>
+                    <p>mega-menu</p>
+                    <p>mega-menu</p>
+                    <p>mega-menu</p>
+                  </div>
+                  <div class="inside-mega-menu">
+                    <p>mega-menu</p>
+                    <p>mega-menu</p>
+                    <p>mega-menu</p>
+                    <p>mega-menu</p>
+                  </div>
+                </div>
+              </li> -->
               <li class="{{ Request::url() == route('contact.us') ? 'active' : '' }}"><a href="{{ route('contact.us') }}"><i class="fa fa-envelope" style="font-size:19px;padding-right: 5px;color: #18a7ff;"></i>{{__('Contact us')}}</a> </li>
+              
               @if(Auth::check())
               <li class="dropdown userbtn"><a href="">{{Auth::user()->printUserImage()}}</a>
                 <ul class="dropdown-menu">

@@ -12,6 +12,7 @@ use Redirect;
 use Input;
 use Config;
 use App\Package;
+use App\Services;
 use App\User;
 use Carbon\Carbon;
 use Cake\Chronos\Chronos;
@@ -68,6 +69,87 @@ class OrderController extends Controller
      * @param IlluminateHttpRequest $request
      * @return IlluminateHttpResponse
      */
+    public function orderServices(Request $request, $service_id)
+    {
+		$service = Services::findOrFail($service_id);
+		
+		$order_amount = $service->service_price;
+		
+		/***************************/
+		$buyer_id = '';
+		$buyer_name = '';
+		
+		if(Auth::check()){
+			$buyer_id = Auth::user()->id;
+			$buyer_name = Auth::user()->getName().'('.Auth::user()->email.')';
+		}else{
+            
+            return view("/auth/login");
+        }
+		$service_for = ($service->service_for == 'employer')? __('Employer'):__('Job Seeker');
+		$description = $service_for.' '.$buyer_name.' - '.$buyer_id.' '.__('Package').':'.$service->service_title;
+		/***************************/
+		
+		$payer = new Payer();
+		/***************************/
+        $payer->setPaymentMethod('paypal');
+        /***************************/
+		$item_1 = new Item();
+        $item_1->setName($service_for.' '.__('Package').' : '.$service->service_title) /** item name * */
+                ->setCurrency('USD')
+                ->setQuantity(1)
+                ->setPrice($order_amount);/** unit price * */
+        /***************************/
+		$item_list = new ItemList();
+        $item_list->setItems(array($item_1));
+        $amount = new Amount();
+        $amount->setCurrency('USD')
+                ->setTotal($order_amount);
+        /***************************/
+		$transaction = new Transaction();
+        $transaction->setAmount($amount)
+                ->setItemList($item_list)
+                ->setDescription($description);
+        $redirect_urls = new RedirectUrls();
+        $redirect_urls->setReturnUrl(URL::route('payment.status', $service_id)) /** Specify return URL * */
+                ->setCancelUrl(URL::route('payment.status', $service_id));
+        $payment = new Payment();
+        $payment->setIntent('Sale')
+                ->setPayer($payer)
+                ->setRedirectUrls($redirect_urls)
+                ->setTransactions(array($transaction));
+        /** dd($payment->create($this->_api_context));exit; * */
+        try {
+            $payment->create($this->_api_context);
+        } catch (PayPalExceptionPPConnectionException $ex) {
+            if (Config::get('app.debug')) {
+                flash('Connection timeout');
+                return Redirect::route($this->redirectTo);
+                /** echo "Exception: " . $ex->getMessage() . PHP_EOL; * */
+                /** $err_data = json_decode($ex->getData(), true); * */
+                /** exit; * */
+            } else {
+                flash(__('Some error occur, sorry for inconvenient'));
+                return Redirect::route($this->redirectTo);
+                /** die('Some error occur, sorry for inconvenient'); * */
+            }
+        }
+        foreach ($payment->getLinks() as $link) {
+            if ($link->getRel() == 'approval_url') {
+                $redirect_url = $link->getHref();
+                break;
+            }
+        }
+        /** add payment ID to session * */
+        Session::put('paypal_payment_id', $payment->getId());
+        if (isset($redirect_url)) {
+            /** redirect to paypal * */
+            return Redirect::away($redirect_url);
+        }
+        flash(__('Unknown error occurred'));
+        return Redirect::route($this->redirectTo);
+    }
+
     public function orderPackage(Request $request, $package_id)
     {
 		$package = Package::findOrFail($package_id);

@@ -1,5 +1,5 @@
 <!--Footer-->
-<div class="btad">{!! $siteSetting->above_footer_ad !!}</div>
+<!--<div class="btad">{!! $siteSetting->above_footer_ad !!}</div> -->
 
 
 <div class="footerWrap">
@@ -156,7 +156,7 @@
 			<div class="bttxt">{{__('Copyright')}} &copy; {{date('Y')}} {{ $siteSetting->site_name }}. {{__('All Rights Reserved')}}. {{' ' . $siteSetting->footer_text .': '}} <a href="{{url($siteSetting->footer_link)}}" target="_blank">{{ $siteSetting->link_text }}</a></div>
 		</div>
 		<div class="col-md-4">
-			<div class="paylogos"><img src="{{asset('/')}}images/payment-icons.png" alt="" /></div>
+		<!--	<div class="paylogos"><img src="{{asset('/')}}images/payment-icons.png" alt="" /></div>  -->
 		</div>
 	</div>
 

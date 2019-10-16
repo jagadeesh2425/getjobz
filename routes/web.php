@@ -72,3 +72,4 @@ Auth::routes();
 include_once($real_path .'company_auth.php');
 /********** Admin Auth *************/
 include_once($real_path .'admin_auth.php');
+

@@ -65,5 +65,11 @@ if (!isset($seo)) {
 	$("#"+btn_id).attr('disabled','disabled');		
 	}
 </script>
+<script>
+    function myFunction() {
+      var x = document.getElementById("changeprize").value;
+      document.getElementById("displaytext").innerHTML = x;
+    }
+    </script>
 </body>
 </html>

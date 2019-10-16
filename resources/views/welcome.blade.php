@@ -52,8 +52,10 @@
             return true;
         });
         $("form").find(":input").prop("disabled", false);
-	});
+    });
+    
 </script>
+
 
 @include('includes.country_state_city_js')
 
