@@ -1,6 +1,7 @@
 <?php
 /********** OrderController *************/
-Route::get('order-package/{id}', 'OrderController@orderServices')->name('order.package');
+Route::get('order-service/{id}', 'OrderController@orderServices')->name('order.service');
+Route::get('order-package/{id}', 'OrderController@orderPackage')->name('order.package');
 Route::get('order-upgrade-package/{id}', 'OrderController@orderUpgradePackage')->name('order.upgrade.package');
 Route::get('paypal-payment-status/{id}', 'OrderController@getPaymentStatus')->name('payment.status');
 Route::get('paypal-upgrade-payment-status/{id}', 'OrderController@getUpgradePaymentStatus')->name('upgrade.payment.status');

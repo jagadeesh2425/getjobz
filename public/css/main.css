@@ -169,12 +169,13 @@ select {
 	color: #888;
 }
 .titleTop h3 {
-	font-size: 40px;
+	font-size: 48px;
 	font-weight: 500;
 	color: #000;
+	font-family: "Segoe UI";
 }
 .titleTop h3 span {
-	color: #18a7ff;
+	color: #26348a;
 	font-weight: 200;
 }
 /************************************************
@@ -464,7 +465,7 @@ h6 {
 	background: none;
 }
 .navbar-nav>li>a:hover, .navbar-nav>li:hover>a, .navbar-nav>li.active>a {
-	border-bottom-color: #18a7ff;
+	border-bottom-color: #3c973c;
 }
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
 	background-color: #fff;
@@ -482,7 +483,7 @@ h6 {
 	padding: 8px 15px;
 }
 .dropdown-menu>li>a:hover {
-	background: #18a7ff;
+	background: #3c973c;
 	color: #fff;
 }
 .navbar-collapse.in {
@@ -541,7 +542,7 @@ h6 {
 	text-align: center;
 	font-size: 32px;
 	color: #fff;
-	text-transform: uppercase;
+	text-transform:uppercase;
 }
 .searchwrap h3 span {
 	display: block;
@@ -549,8 +550,6 @@ h6 {
 .searchbar {
 	margin: 0;
 	margin-top: 40px;
-	background: rgba(0, 0, 0, 0.5);
-    padding: 19px;
 }
 .searchbar div {
 	padding: 0 1px;
@@ -564,7 +563,7 @@ h6 {
 	margin-bottom: 15px;
 }
 .searchbar .btn {
-	background: #18a7ff;
+	background: #0f2ddb;
 	border-radius: 0;
 	color: #fff;
 	border: none;
@@ -950,10 +949,10 @@ a.wit-btn {
 	line-height: 115px;
 	margin-bottom: 15px;
 	display: inline-block;
-	background: #18a7ff;
+	background: #26348a;
 }
 .howlist li:nth-child(2) .iconcircle {
-	background: #6ACA00;
+	background: #3c973c;
 	border-color: #83ec0f;
 }
 .howlist li:last-child .iconcircle {
@@ -965,15 +964,17 @@ a.wit-btn {
 	color: #fff;
 }
 .howlist li h4 {
-	font-size: 24px;
+	font-size: 22px;
 	font-weight: 700;
 	color: #000;
 	margin-bottom: 10px;
+	font-family: "Segoe UI";
 }
 .howlist li p {
 	font-size: 16px;
 	line-height: 24px;
-	color: #555;
+	color: #000;
+	font-family: "Segoe UI";
 }
 /************************************************
 
@@ -1011,15 +1012,15 @@ a.wit-btn {
 /*Top Search*/
 .topsearchwrap h4 {
 	margin: 0;
-	color: #03A9F4;
+	color: #fff;
 	font-size: 22px;
-	font-weight: bold;
+	font-weight: 500;
 	padding: 15px 25px;
-	text-align: center;
+	text-align: left;
 	border-bottom: 1px solid #eee;
-	background: #f6f6f6;
-	font-family: "Roboto Condensed", Sans-serif;
-    text-transform: uppercase;
+	background: #112bca;
+	text-transform: uppercase;
+	text-align:center;
 }
 .srchbx {
 	border: 1px solid #eee;
@@ -1037,10 +1038,12 @@ a.wit-btn {
 	position: relative;
 	padding-left: 15px;
 	color: #000;
-	font-weight: 600
+	font-weight: 600;
+	font-family: "Segoe UI";
 }
 .catelist li a:hover {
-	color: #18a7ff;
+	color: #42943d;
+	text-decoration:none;
 }
 .catelist li a:before {
 	position: absolute;
@@ -1051,6 +1054,7 @@ a.wit-btn {
 }
 .catelist li span {
 	color: #FF5722;
+	display:none;
 }
 /************************************************
 
@@ -1072,7 +1076,7 @@ a.wit-btn {
 	-webkit-transition: 0.4s ease-in-out;
 	-ms-transition: 0.4s ease-in-out;
 	-moz-transition: 0.4s ease-in-out;
-	min-height: 113px;
+	min-height: 165px;
 }
 .jobslist li .jobint:hover {
 	box-shadow: 0 0 20px rgba(0,0,0,0.1);
@@ -1085,19 +1089,24 @@ a.wit-btn {
 	margin-bottom: 5px;
 }
 .jobslist li h4 a {
-	font-size: 18px;
+	font-size: 15px;
 	color: #000;
 	font-weight: 700;
+	font-family: "Segoe UI";
+    line-height: 26px;
 }
 .jobslist li h4 a:hover {
 	color: #18a7ff;
+	text-decoration:none;
 }
 .jobslist li .company {
 	color: #999;
-	padding: 7px 0
+	padding: 7px 0;
+	font-family: "Segoe UI";
+	font-size: 15px;
 }
 .jobslist li .company a {
-	color: #18a7ff;
+	color: #112bca;
 }
 .jobslist li .jobloc {
 	color: #000;
@@ -1108,11 +1117,11 @@ a.wit-btn {
 .jobslist li .applybtn {
 	background: #fff;
 	display: inline-block;
-	color: #18a7ff;
+	color: #112bca;
 	font-weight: 600;
 	padding: 9px 15px;
 	margin-top: 20px;
-	border: 1px solid #18a7ff;
+	border: 1px solid #112bca;
 }
 .jobslist li .applybtn:hover {
 	background: #18a7ff;
@@ -1125,7 +1134,7 @@ a.wit-btn {
 }
 .viewallbtn a {
 	display: inline-block;
-	background: #18a7ff;
+	background: #112bca;
 	color: #fff;
 	font-size: 18px;
 	font-weight: 600;
@@ -1143,7 +1152,7 @@ a.wit-btn {
 	padding: 4px 6px;
 }
 .fulltime {
-	background: #6ACA00;
+	background: #42943d;
 	color: #fff;
 	font-size: 13px;
 	display: inline-block;
@@ -1204,6 +1213,7 @@ label.partTime[title="Rotating"] {
 	margin: 0 auto;
 	font-size: 18px;
 	line-height: 24px;
+	font-family: "Segoe UI";
 }
 .videowraper a {
 	display: inline-block;
@@ -1304,7 +1314,7 @@ label.partTime[title="Rotating"] {
 /*Page Title*/
 
 .pageTitle {
-	background: url(../images/page-title-bg.jpg) no-repeat;
+	background: url(../images/jobs-banner.jpg) no-repeat;
 	background-size: cover;
 	padding: 25px 0;
 }
@@ -1343,7 +1353,7 @@ label.partTime[title="Rotating"] {
 	margin-bottom: 30px;
 }
 .pageSearch a.btn {
-	background: #18a7ff;
+	background: #333b8e;
 	color: #fff;
 	padding: 13px 15px;
 	font-size: 16px;
@@ -1407,7 +1417,7 @@ label.partTime[title="Rotating"] {
 .sidebar .widget-title {
 	font-size: 18px;
 	font-weight: 600;
-	color: #666;
+	color: #000;
 	margin-bottom: 20px;
 }
 .optionlist {
@@ -1418,6 +1428,8 @@ label.partTime[title="Rotating"] {
 	padding: 5px 0;
 	position: relative;
 	padding-left: 30px;
+	font-family: "Segoe UI";
+    line-height: 23px;
 }
 .optionlist li span {
 	position: absolute;
@@ -1451,7 +1463,7 @@ label.partTime[title="Rotating"] {
 	margin-top: 10px;
 }
 .searchnt .btn {
-	background: #18a7ff;
+	background: #333b8e;
 	display: block;
 	border-radius: 0;
 	width: 100%;
@@ -1497,7 +1509,7 @@ label.partTime[title="Rotating"] {
 .searchList li h3 a {
 	font-size: 18px;
 	font-weight: 600;
-	color: #00a8ff;
+	color: #333b8e;
 }
 .searchList li .companyName {
 	margin: 10px 0;
@@ -1519,11 +1531,11 @@ label.partTime[title="Rotating"] {
 	margin-top: 20px;
 }
 .searchList li .listbtn a {
-	background: #fff;
+	background: #333b8e;
 	display: block;
 	border-radius: 0;
 	width: 100%;
-	color: #18a7ff;
+	color: #ffffff;
 	text-transform: uppercase;
 	font-weight: 700;
 	padding: 10px 15px;
@@ -1615,7 +1627,7 @@ label.partTime[title="Rotating"] {
 .job-header .jobinfo .companyinfo .title a {
 	font-size: 18px;
 	font-weight: 600;
-	color: #18a7ff;
+	color: #253485;
 }
 .job-header .jobinfo .companyinfo .opening a {
 	color: #333;
@@ -1628,7 +1640,7 @@ label.partTime[title="Rotating"] {
 	height: 100px;
 	background: #cbcbcb;
 	margin-right: 20px;
-	border: 5px solid #18a7ff;
+	border: 5px solid #3c973c;
 }
 .job-header .jobinfo .candidateinfo .title {
 	font-size: 24px;
@@ -1647,7 +1659,7 @@ label.partTime[title="Rotating"] {
 }
 .job-header .jobinfo .candidateinfo .loctext i {
 	width: 20px;
-	color: #18a7ff;
+	color: #3c973c;
 }
 .cadsocial {
 	margin-top: 10px;
@@ -1700,7 +1712,7 @@ label.partTime[title="Rotating"] {
 .job-header .contentbox h3 {
 	font-size: 24px;
 	font-weight: 700;
-	color: #18a7ff;
+	color: #333b8e;
 	margin-bottom: 10px;
 }
 .job-header .contentbox p {
@@ -1751,7 +1763,7 @@ ul.skillslist li a:hover{text-decoration: none; background:#a8d815; color: #fff;
 }
 .jobdetail h3 {
 	font-size: 18px;
-	color: #18a7ff;
+	color: #333b8e;
 	font-weight: 700;
 }
 .jbdetail {
@@ -1764,7 +1776,7 @@ ul.skillslist li a:hover{text-decoration: none; background:#a8d815; color: #fff;
 .jbdetail li a {
 	display: block;
 	text-align: right;
-	color: #18a7ff;
+	color: #333b8e;
 	font-weight: 600;
 }
 .jbdetail li span {
@@ -2136,7 +2148,7 @@ ul.skillslist li a:hover{text-decoration: none; background:#a8d815; color: #fff;
 }
 .formpanel .btn {
 	width: 100%;
-	background: #18a7ff;
+	background: #333b8e;
 	color: #fff;
 	border-radius: 0;
 	padding: 10px;
@@ -2434,7 +2446,7 @@ ul.orderlist li:before {
 .four-plan .boxes {
 	list-style: none;
 	border-radius: 5px;
-	background: #f0f8ff;
+	background: #fff;
 	padding: 10px 20px;
 	text-align: center;
 	margin-top: 30px;
@@ -2506,7 +2518,7 @@ ul.orderlist li:before {
 .main-plan .plan-price1-2 {
 	font-size: 48px;
 	font-weight: bold;
-	
+	float: left;
 	color: #222;
 }
 .main-plan .plan-price1-3 {
@@ -3467,6 +3479,7 @@ blockquote:after {
 	color: #fff;
 	margin-bottom: 15px;
 	text-transform: uppercase;
+    font-family: "Segoe UI";
 }
 .footerWrap p {
 	line-height: 22px;
@@ -3562,7 +3575,8 @@ blockquote:after {
 }
 .copyright {
 	padding: 10px 0;
-	color: #777;
+	color: #fff;
+	background: #3c973c;
 }
 .copyright ul li {
 	display: inline;
@@ -3578,7 +3592,7 @@ blockquote:after {
 }
 .paylogos{text-align: right;}
 .bttxt {
-	color: #888;
+	color: #fff;
 	line-height: 24px;
 }
 /*copyright*/
@@ -3982,60 +3996,10 @@ Large Mobile Screen
 
 .text-white {color: #ffffff !important;}
 
-.bttxt a{color:white;}
+.jobslist li .company a:hover{
+    text-decoration:none;
+}
 
-.bttxt a:hover{color:rgb(255, 255, 255);}
-
-.copyright{background-color: #000}
-/* ––––––––––––––––––––––––––––––––––––––––––––––––––
-megamenu.js STYLE STARTS HERE
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
- 
-li.mega{
-	width: 120px;
-	float: left;
-	margin-right: 10px;
-	text-align: center;
-	padding: 15px 0;
-	font-size: 18px;
-	cursor: pointer;
-	border-radius: 10px;
-	transition: all 0.4s ease;
-  }
-  
-  li.mega:hover .mega-menu{
-	color: #fff;
-  }
-  .mega-menu{
-	position: absolute;
-	top: 65px;
-	left: 0;
-	width: 750px;
-	height: 250px;
-	background: #2c3e50;
-	opacity: 0;
-	visibility: hidden;
-	transition: all 0.4s ease;
-	box-sizing: border-box;
-	padding: 40px;
-	z-index: 1;
-  }
-   
-  li.mega:hover .mega-menu{
-	opacity: 1;
-	visibility: visible;
-  }
-   
-  .inside-mega-menu{
-	width: 24%;
-	float: left;
-	margin-right: 1%;
-  }
-   
-  .inside-mega-menu p{
-	padding: 10px 0;
-	transition: all 0.4s ease;
-  }
 .services{
 	border: 1px solid #00000040;
     text-align: center;
@@ -4074,11 +4038,30 @@ ul.why_resume_content li{
 }
 h2.why_resume_title{
 	font-family: "Segoe UI";
-	font-size: 30px;
+	font-size: 20px;
 }
 
 #changeprize{
 	font-size: 17px;
     margin: 0 0 13px 0;
 }
-
+.terms_conditions h3,p{
+    font-family: "Segoe UI";
+    margin: 11px 0 0 0;
+}
+.terms_conditions ul li{
+    font-family: "Segoe UI";
+    list-style-type:disc;
+    font-size: 16px;
+    line-height: 25px;
+}
+.terms_conditions ol li{
+    font-family: "Segoe UI";
+    list-style-type: decimal;
+    font-size: 16px;
+    line-height: 25px;
+}
+.privacy_policyi h3,p{
+    font-family: "Segoe UI";
+    margin: 11px 0 0 0;
+}

@@ -65,7 +65,7 @@
                               
                                         @if((bool)$siteSetting->is_paypal_active)
                               
-                                        <li class="order paypal"><a href="{{route('order.package', $services->id)}}"><i class="fa fa-cc-paypal" aria-hidden="true"></i> {{__('pay with paypal')}}</a></li>
+                                        <li class="order paypal"><a href="{{route('order.service', $services->id)}}"><i class="fa fa-cc-paypal" aria-hidden="true"></i> {{__('pay with paypal')}}</a></li>
                               
                                         @endif
                               
@@ -80,6 +80,7 @@
                                     
                                      @endif
                                     @endforeach </div>
+                                    
                               
                                 </div>
                               

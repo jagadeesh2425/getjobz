@@ -139,7 +139,12 @@
         @include('admin/shared/side_bars/testimonial')
 
 
+         <li class="heading">
 
+			<h3 class="uppercase">User Services</h3>
+
+		</li>
+            @include('admin/shared/side_bars/service')
 		
 
 		<li class="heading">
@@ -185,7 +190,6 @@
 		@include('admin/shared/side_bars/package')
 
 		
-
 		
 
 		<li class="heading">

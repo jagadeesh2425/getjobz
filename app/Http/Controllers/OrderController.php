@@ -71,7 +71,9 @@ class OrderController extends Controller
      */
     public function orderServices(Request $request, $service_id)
     {
-		$service = Services::findOrFail($service_id);
+        $service = Services::findOrFail($service_id);
+        
+        
 		
 		$order_amount = $service->service_price;
 		
@@ -86,8 +88,22 @@ class OrderController extends Controller
             
             return view("/auth/login");
         }
-		$service_for = ($service->service_for == 'employer')? __('Employer'):__('Job Seeker');
-		$description = $service_for.' '.$buyer_name.' - '.$buyer_id.' '.__('Package').':'.$service->service_title;
+
+        if($service->service_for == 'xpress_resume'){
+            $service_for="Xpress Resume";
+        }elseif($service->service_for == 'resume_highlighter'){
+            $service_for="Resume Highlighter";
+        }elseif($service->service_for == 'resume_writing'){
+            $service_for="Resume Writing";
+        }elseif($service->service_for == 'info_graphic'){
+            $service_for="Info Graphic";
+        }else{
+            $service_for="Special Packages";
+        }
+		//$service_for = ($service->service_for == 'xpress_resume')? __('Xpress Resume'):__('Resume Highlighter');
+        $description = $service_for.' '.$buyer_name.' - '.$buyer_id.' '.__('Service').':'.$service->service_title;
+        
+        
 		/***************************/
 		
 		$payer = new Payer();
@@ -95,7 +111,7 @@ class OrderController extends Controller
         $payer->setPaymentMethod('paypal');
         /***************************/
 		$item_1 = new Item();
-        $item_1->setName($service_for.' '.__('Package').' : '.$service->service_title) /** item name * */
+        $item_1->setName($service_for.' '.__('Service').' : '.$service->service_title) /** item name * */
                 ->setCurrency('USD')
                 ->setQuantity(1)
                 ->setPrice($order_amount);/** unit price * */
@@ -118,6 +134,8 @@ class OrderController extends Controller
                 ->setPayer($payer)
                 ->setRedirectUrls($redirect_urls)
                 ->setTransactions(array($transaction));
+                
+                
         /** dd($payment->create($this->_api_context));exit; * */
         try {
             $payment->create($this->_api_context);
@@ -134,18 +152,23 @@ class OrderController extends Controller
                 /** die('Some error occur, sorry for inconvenient'); * */
             }
         }
+        
         foreach ($payment->getLinks() as $link) {
             if ($link->getRel() == 'approval_url') {
                 $redirect_url = $link->getHref();
                 break;
             }
         }
+        
         /** add payment ID to session * */
         Session::put('paypal_payment_id', $payment->getId());
+        
         if (isset($redirect_url)) {
             /** redirect to paypal * */
             return Redirect::away($redirect_url);
         }
+        
+        
         flash(__('Unknown error occurred'));
         return Redirect::route($this->redirectTo);
     }
@@ -199,7 +222,8 @@ class OrderController extends Controller
                 ->setPayer($payer)
                 ->setRedirectUrls($redirect_urls)
                 ->setTransactions(array($transaction));
-        /** dd($payment->create($this->_api_context));exit; * */
+               
+       /** dd($payment->create($this->_api_context));exit; * */
         try {
             $payment->create($this->_api_context);
         } catch (PayPalExceptionPPConnectionException $ex) {
